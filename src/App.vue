@@ -71,6 +71,7 @@ export default {
       },
       question: {
         question1: {
+          complete: false,
           text: 'Текст вопроса',
           answer: 'рыба',
           userAnswer: null,
@@ -105,7 +106,6 @@ export default {
       if (item.actionEventStart === 'mount' && item.action) {
         item.action();
       }
-
     }
   },
   watch: {
