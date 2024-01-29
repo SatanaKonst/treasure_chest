@@ -74,7 +74,7 @@ export default {
           text: 'Текст вопроса',
           answer: 'рыба',
           userAnswer: null,
-          type: 'variants',
+          type: 'text-variants', //checkbox-variants, radio-variants, text-variants
           variants: [
             'Вариант 1',
             'Вариант 2',

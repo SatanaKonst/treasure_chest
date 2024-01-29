@@ -2,7 +2,7 @@
   <div class="controls-panel">
     <div class="container alert-link">
       <div class="row" v-if="open()===true">
-        <div class="col-12">
+        <div class="col-12 mt-1 mb-3 text-center">
           {{ question.text }}
         </div>
         <div class="col-12">
@@ -17,7 +17,9 @@
 </template>
 
 <script>
-import variantsType from "./questionTypes/variantsType.vue"
+import radioVariantsType from "./questionTypes/radioVariantsType.vue"
+import checkboxVariantsType from "./questionTypes/checkboxVariantsType.vue"
+import textVariantsType from "./questionTypes/textVariantsType.vue"
 
 export default {
   name: 'controlsPanel',
@@ -26,13 +28,12 @@ export default {
     inventar: Object
   },
   components: {
-    variantsType
+    radioVariantsType,
+    checkboxVariantsType,
+    textVariantsType
   },
   data() {
     return {}
-  },
-  mounted() {
-
   },
   methods: {
     open() {
@@ -47,15 +48,19 @@ export default {
       return cristalInInventar >= this.$props.question.needCristalls;
     },
     setAnswer($event) {
-      console.log($event)
+      this.$props.question.userAnswer = $event;
       if (this.$props.question.actionAnswer !== null) {
         this.$props.question.actionAnswer();
       }
     },
     renderComponent() {
       switch (this.$props.question.type) {
-        case 'variants':
-          return 'variants-type';
+        case 'radio-variants':
+          return 'radio-variants-type';
+        case 'checkbox-variants':
+          return 'checkbox-variants-type';
+        case 'text-variants':
+          return 'text-variants-type';
       }
     }
   }
@@ -63,7 +68,7 @@ export default {
 </script>
 
 <style scoped>
-.controls-panel{
+.controls-panel {
   min-height: 35vh;
   background-color: rgb(255 255 255 / 73%);
   border-radius: 10px;
