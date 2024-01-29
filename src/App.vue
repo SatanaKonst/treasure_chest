@@ -5,7 +5,7 @@
         <scanner @result="scanResult=$event"></scanner>
       </div>
       <tool-bar :inventar="inventar"></tool-bar>
-      <controls-panel></controls-panel>
+      <controls-panel v-if="currentQuestion!==null" :question="currentQuestion" :inventar="inventar"></controls-panel>
     </template>
     <template v-else>
       <div class="alert alert-danger text-center">
@@ -69,14 +69,33 @@ export default {
           addTime: null
         }
       },
+      question: {
+        question1: {
+          text: 'Текст вопроса',
+          answer: 'рыба',
+          userAnswer: null,
+          type: 'variants',
+          variants: [
+            'Вариант 1',
+            'Вариант 2',
+            'Вариант 3',
+            'Вариант 4',
+          ],
+          needCristalls: 0,
+          actionAnswer: () => {
+            this.addInventarItem('cristal_1', true, 10)
+          }
+        }
+      },
       scanResult: null,
       inventar: {},
       play: true,
+      currentQuestion: null
     }
   },
   created() {
     this.addInventarItem('health', false)
-    this.addInventarItem('aid')
+    this.currentQuestion = this.question.question1;
 
   },
   mounted() {
@@ -91,23 +110,40 @@ export default {
   },
   watch: {
     scanResult() {
-      console.log(this.scanResult)
+      if (typeof this.scanResult === "object") {
+        let prepareData = this.scanResult.data.split('/');
+        switch (prepareData[0]) {
+          case 'inventar':
+            if (this.inventarSrc[prepareData[1]]) {
+              this.addInventarItem(prepareData[1])
+            }
+            break;
+          case 'question':
+            this.currentQuestion = this.question[prepareData[1]];
+            break;
+        }
+
+      }
     }
   },
   methods: {
-    addInventarItem(key, countInc = true) {
-      let add = false;
-      if (this.inventar[key]) {
-        //Проверим дату добавления
-        add = this.inventar[key].addTime + this.inventar[key].refreshTime <= Date.now();
-      } else {
-        this.inventar[key] = {...this.inventarSrc[key]};
-        add = true;
+    addInventarItem(key, countInc = true, countOverride = null) {
+      let prepareKey = key.split('_');
+
+      //Если элемента нет в инвентаре, то добавляем
+      if (!this.inventar[key]) {
+        this.inventar[key] = {...this.inventarSrc[prepareKey[0]]};
+        this.inventar[key].addTime = Date.now()
       }
 
-      if (add === true) {
+      //Если дата добавления + дата выдачи нового элемента больше текущей даты, то добавляем
+      if (this.inventar[key].addTime + this.inventar[key].refreshTime > Date.now()) {
         if (countInc === true) {
-          this.inventar[key].count++;
+          if (countOverride !== null) {
+            this.inventar[key].count += countOverride;
+          } else {
+            this.inventar[key].count++;
+          }
         }
         this.inventar[key].addTime = Date.now()
       }
