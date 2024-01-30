@@ -14,47 +14,6 @@
 </noscript>
 <script>
     var gameQuestions = {
-        team1: {
-            question1: {
-                complete: false,
-                text: 'Текст вопроса',
-                answer: 'рыба',
-                userAnswer: null,
-                type: 'text-variants', //checkbox-variants, radio-variants, text-variants
-                variants: [
-                    'Вариант 1',
-                    'Вариант 2',
-                    'Вариант 3',
-                    'Вариант 4',
-                ],
-                needCristalls: 5,
-                actionAnswer: () => {
-                    this.addInventarItem('cristal_1', true, 10)
-                }
-            }
-        },
-        team2: {
-            question1: {
-                complete: false,
-                text: 'Текст вопроса team 2',
-                answer: 'рыба',
-                userAnswer: null,
-                type: 'text-variants', //checkbox-variants, radio-variants, text-variants
-                variants: [
-                    'Вариант 1',
-                    'Вариант 2',
-                    'Вариант 3',
-                    'Вариант 4',
-                ],
-                needCristalls: 5,
-                actionAnswer: () => {
-                    this.addInventarItem('cristal_1', true, 10)
-                }
-            }
-        }
-    }
-
-    var test = {
         question1: {
             complete: false,
             text: 'сколько дней длится масленица?',

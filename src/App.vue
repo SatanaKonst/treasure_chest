@@ -101,7 +101,7 @@ export default {
     team() {
       /* eslint-disable */
       if (gameQuestions && typeof gameQuestions === "object") {
-        this.question = gameQuestions[`team${this.team}`];
+        this.question = gameQuestions;
       }
       /* eslint-enable */
 
