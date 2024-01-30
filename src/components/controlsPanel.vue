@@ -57,6 +57,7 @@ export default {
     },
     setAnswer($event) {
       this.$props.question.userAnswer = $event;
+      this.$props.question.complete = true;
       if (this.$props.question.actionAnswer !== null) {
         this.$props.question.actionAnswer();
       }

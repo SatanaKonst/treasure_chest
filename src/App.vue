@@ -73,6 +73,7 @@ export default {
               }
             }, 10000)
           },
+          refreshTime: 0,
           count: 50,
           addTime: null
         },
@@ -80,6 +81,7 @@ export default {
           icon: './assets/icons/team.png',
           actionEventStart: null,
           action: null,
+          refreshTime: 0,
           count: null,
           addTime: null
         }
@@ -133,7 +135,7 @@ export default {
     }
   },
   methods: {
-    initMountInventarActions(){
+    initMountInventarActions() {
       //Init inventar event
       for (let key in this.inventar) {
         let item = this.inventar[key];
@@ -142,7 +144,7 @@ export default {
         }
       }
     },
-    addInventarItem(key, countInc = true, countOverride = null) {
+    addInventarItem(key, countInc = true, count = null) {
       let prepareKey = key.split('_');
 
       //Если элемента нет в инвентаре, то добавляем
@@ -164,8 +166,8 @@ export default {
       }
 
       //Если установлена переписывание значения
-      if (countOverride !== null) {
-        this.inventar[key].count = Number(countOverride);
+      if (count !== null) {
+        this.inventar[key].count += Number(count);
       }
     }
   }
