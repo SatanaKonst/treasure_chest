@@ -8,9 +8,13 @@
           </div>
           <div class="col-12">
             <component :is="renderComponent()"
+                       v-if="question.complete===false"
                        :question="question"
                        @answer="setAnswer"
             ></component>
+            <div class="alert alert-success text-center" v-else>
+              Ответ на вопрос получен!
+            </div>
           </div>
         </div>
       </template>
@@ -57,7 +61,6 @@ export default {
     },
     setAnswer($event) {
       this.$props.question.userAnswer = $event;
-      this.$props.question.complete = true;
       if (this.$props.question.actionAnswer !== null) {
         this.$props.question.actionAnswer();
       }
