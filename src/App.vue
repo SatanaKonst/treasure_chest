@@ -1,17 +1,25 @@
 <template>
   <div class="container pt-3">
-    <template v-if="play===true">
-      <div class="section">
-        <scanner @result="scanResult=$event"></scanner>
-      </div>
-      <tool-bar :inventar="inventar"></tool-bar>
-      <controls-panel v-if="currentQuestion!==null" :question="currentQuestion" :inventar="inventar"></controls-panel>
+    <div class="section">
+      <scanner @result="scanResult=$event"></scanner>
+    </div>
+    <template v-if="team!==null">
+      <template v-if="play===true">
+        <tool-bar :inventar="inventar"></tool-bar>
+        <controls-panel v-if="currentQuestion!==null" :question="currentQuestion" :inventar="inventar"></controls-panel>
+      </template>
+      <template v-else>
+        <div class="alert alert-danger text-center">
+          Игра окончена
+        </div>
+      </template>
     </template>
     <template v-else>
-      <div class="alert alert-danger text-center">
-        Игра окончена
+      <div class="alert alert-info text-center">
+        Для начала игры отсканируейте QR Код c номером команды
       </div>
     </template>
+
 
   </div>
 
@@ -67,52 +75,50 @@ export default {
           },
           count: 50,
           addTime: null
+        },
+        team: {
+          icon: './assets/icons/team.png',
+          actionEventStart: null,
+          action: null,
+          count: null,
+          addTime: null
         }
       },
-      question: {
-        question1: {
-          complete: false,
-          text: 'Текст вопроса',
-          answer: 'рыба',
-          userAnswer: null,
-          type: 'text-variants', //checkbox-variants, radio-variants, text-variants
-          variants: [
-            'Вариант 1',
-            'Вариант 2',
-            'Вариант 3',
-            'Вариант 4',
-          ],
-          needCristalls: 0,
-          actionAnswer: () => {
-            this.addInventarItem('cristal_1', true, 10)
-          }
-        }
-      },
+      question: null, // В глобальном объекте на странице запуска приложения
       scanResult: null,
       inventar: {},
       play: true,
-      currentQuestion: null
+      currentQuestion: null,
+      team: null
     }
-  },
-  created() {
-    this.addInventarItem('health', false)
-    this.currentQuestion = this.question.question1;
-
   },
   mounted() {
-    //Init inventar event
-    for (let key in this.inventar) {
-      let item = this.inventar[key];
-      if (item.actionEventStart === 'mount' && item.action) {
-        item.action();
-      }
-    }
+
   },
   watch: {
+    team() {
+      /* eslint-disable */
+      if (gameQuestions && typeof gameQuestions === "object") {
+        this.question = gameQuestions[`team${this.team}`];
+      }
+      /* eslint-enable */
+
+      //Добавим иконку команды в инвентарь
+      this.addInventarItem('team', true, this.team);
+
+      //Добавим жизнь
+      this.addInventarItem('health', false);
+
+      //Запустим события инвенторя на монтирование
+      this.initMountInventarActions();
+    },
     scanResult() {
       if (typeof this.scanResult === "object") {
         let prepareData = this.scanResult.data.split('/');
         switch (prepareData[0]) {
+          case 'team':
+            this.team = Number(prepareData[1]);
+            break;
           case 'inventar':
             if (this.inventarSrc[prepareData[1]]) {
               this.addInventarItem(prepareData[1])
@@ -127,6 +133,15 @@ export default {
     }
   },
   methods: {
+    initMountInventarActions(){
+      //Init inventar event
+      for (let key in this.inventar) {
+        let item = this.inventar[key];
+        if (item.actionEventStart === 'mount' && item.action) {
+          item.action();
+        }
+      }
+    },
     addInventarItem(key, countInc = true, countOverride = null) {
       let prepareKey = key.split('_');
 
@@ -137,15 +152,20 @@ export default {
       }
 
       //Если дата добавления + дата выдачи нового элемента больше текущей даты, то добавляем
-      if (this.inventar[key].addTime + this.inventar[key].refreshTime > Date.now()) {
+      if (
+          this.inventar[key].addTime &&
+          this.inventar[key].refreshTime &&
+          this.inventar[key].addTime + this.inventar[key].refreshTime > Date.now()
+      ) {
         if (countInc === true) {
-          if (countOverride !== null) {
-            this.inventar[key].count += countOverride;
-          } else {
-            this.inventar[key].count++;
-          }
+          this.inventar[key].count++;
         }
         this.inventar[key].addTime = Date.now()
+      }
+
+      //Если установлена переписывание значения
+      if (countOverride !== null) {
+        this.inventar[key].count = Number(countOverride);
       }
     }
   }

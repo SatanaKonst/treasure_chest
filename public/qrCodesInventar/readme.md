@@ -5,3 +5,4 @@
 
 1. Для инвенторя ```inventory/cristal_1```
 2. Для вопросов ```question/question1```
+3. Для команд ```team/1, team/2```

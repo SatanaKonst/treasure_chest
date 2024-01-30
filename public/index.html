@@ -1,17 +1,60 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<script>
+    var gameQuestions = {
+        team1: {
+            question1: {
+                complete: false,
+                text: 'Текст вопроса',
+                answer: 'рыба',
+                userAnswer: null,
+                type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+                variants: [
+                    'Вариант 1',
+                    'Вариант 2',
+                    'Вариант 3',
+                    'Вариант 4',
+                ],
+                needCristalls: 5,
+                actionAnswer: () => {
+                    this.addInventarItem('cristal_1', true, 10)
+                }
+            }
+        },
+        team2: {
+            question1: {
+                complete: false,
+                text: 'Текст вопроса team 2',
+                answer: 'рыба',
+                userAnswer: null,
+                type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+                variants: [
+                    'Вариант 1',
+                    'Вариант 2',
+                    'Вариант 3',
+                    'Вариант 4',
+                ],
+                needCristalls: 5,
+                actionAnswer: () => {
+                    this.addInventarItem('cristal_1', true, 10)
+                }
+            }
+        }
+    }
+</script>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
 </html>

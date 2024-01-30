@@ -1,17 +1,25 @@
 <template>
   <div class="controls-panel">
-    <div class="container alert-link">
-      <div class="row" v-if="open()===true">
-        <div class="col-12 mt-1 mb-3 text-center">
-          {{ question.text }}
+    <div class="container pt-2">
+      <template v-if="open()===true">
+        <div class="row">
+          <div class="col-12 mb-3 text-center">
+            {{ question.text }}
+          </div>
+          <div class="col-12">
+            <component :is="renderComponent()"
+                       :question="question"
+                       @answer="setAnswer"
+            ></component>
+          </div>
         </div>
-        <div class="col-12">
-          <component :is="renderComponent()"
-                     :question="question"
-                     @answer="setAnswer"
-          ></component>
+      </template>
+      <template v-else>
+        <div class="alert alert-warning text-center">
+          Для прохождения задания не хватает {{ question.needCristalls }} кристаллов!
         </div>
-      </div>
+      </template>
+
     </div>
   </div>
 </template>

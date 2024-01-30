@@ -19,7 +19,10 @@ export default {
         result => {
           this.$emit('result', result)
         },
-        { /* your options or returnDetailedScanResult: true if you're not specifying any other options */},
+        {
+          /* your options or returnDetailedScanResult: true if you're not specifying any other options */
+          highlightScanRegion: true
+        },
     );
     this.scanner.start();
   }
@@ -28,7 +31,7 @@ export default {
 
 
 <style scoped>
-  video{
-    border-radius: 10px;
-  }
+video {
+  border-radius: 10px;
+}
 </style>
