@@ -14,6 +14,7 @@
             ></component>
             <div class="alert alert-success text-center" v-else>
               Ответ на вопрос получен!
+              <button type="button" class="btn btn-success w-100" @click="$emit('close')">X</button>
             </div>
           </div>
         </div>
@@ -21,7 +22,9 @@
       <template v-else>
         <div class="alert alert-warning text-center">
           Для прохождения задания не хватает {{ question.needCristalls }} кристаллов!
+          <button type="button" class="btn btn-danger w-100" @click="$emit('close')">X</button>
         </div>
+
       </template>
 
     </div>

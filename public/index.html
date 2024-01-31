@@ -24,10 +24,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -41,10 +42,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -58,10 +60,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -75,10 +78,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -92,10 +96,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -109,10 +114,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 5,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 7)
+                    this.addInventarItem('cristal', false, 7)
                 }
             }
         },
@@ -128,7 +134,8 @@
             userAnswer: [],
             type: 'checkbox-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 let result = 0;
                 this.currentQuestion.userAnswer.map((answer) => {
                     if (this.currentQuestion.answer.indexOf(answer) !== -1) {
@@ -136,7 +143,7 @@
                     }
                 })
                 if (result !== 0) {
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -150,10 +157,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -167,10 +175,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 2)
+                    this.addInventarItem('cristal', false, 2)
                 }
             }
         },
@@ -184,10 +193,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -201,10 +211,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -218,10 +229,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -233,10 +245,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 2)
+                    this.addInventarItem('cristal', false, 2)
                 }
             }
         },
@@ -248,10 +261,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -263,10 +277,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -278,10 +293,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -293,10 +309,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 2)
+                    this.addInventarItem('cristal', false, 2)
                 }
             }
         },
@@ -308,10 +325,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -323,10 +341,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -338,10 +357,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 2)
+                    this.addInventarItem('cristal', false, 2)
                 }
             }
         },
@@ -355,10 +375,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 2,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 2)
+                    this.addInventarItem('cristal', false, 2)
                 }
             }
         },
@@ -372,10 +393,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 3)
+                    this.addInventarItem('cristal', false, 3)
                 }
             }
         },
@@ -387,10 +409,11 @@
             userAnswer: null,
             type: 'text-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 7)
+                    this.addInventarItem('cristal', false, 7)
                 }
             }
         },
@@ -402,10 +425,11 @@
             userAnswer: null,
             type: 'text-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 5,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 10)
+                    this.addInventarItem('cristal', false, 10)
                 }
             }
         },
@@ -417,10 +441,11 @@
             userAnswer: null,
             type: 'text-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 5,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 8)
+                    this.addInventarItem('cristal', false, 8)
                 }
             }
         },
@@ -432,10 +457,11 @@
             userAnswer: null,
             type: 'text-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 5,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 10)
+                    this.addInventarItem('cristal', false, 10)
                 }
             }
         },
@@ -449,10 +475,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -466,10 +493,11 @@
             userAnswer: null,
             type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },
@@ -483,10 +511,11 @@
             userAnswer: null,
             type: 'text-variants', //checkbox-variants, radio-variants, text-variants
             needCristalls: 3,
-            actionAnswer: () => {
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
-                    this.addInventarItem('cristal_1', true, 5)
+                    this.addInventarItem('cristal', false, 5)
                 }
             }
         },

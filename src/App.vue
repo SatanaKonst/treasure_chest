@@ -6,7 +6,10 @@
     <template v-if="team!==null">
       <template v-if="play===true">
         <tool-bar :inventar="inventar"></tool-bar>
-        <controls-panel v-if="currentQuestion!==null" :question="currentQuestion" :inventar="inventar"></controls-panel>
+        <controls-panel v-if="currentQuestion!==null"
+                        :question="currentQuestion"
+                        :inventar="inventar"
+                        @close="currentQuestion=null"></controls-panel>
       </template>
       <template v-else>
         <div class="alert alert-danger text-center">
@@ -67,12 +70,12 @@ export default {
               if (this.inventar.health.count <= 0) {
                 this.play = false;
               } else {
-                this.inventar.health.count--
+                this.inventar.health.count -= 10;
               }
-            }, 10000)
+            }, 60 * 1000)
           },
           refreshTime: 0,
-          count: 50
+          count: 100
         },
         team: {
           icon: './assets/icons/team.png',
@@ -98,7 +101,13 @@ export default {
     team() {
       /* eslint-disable */
       if (gameQuestions && typeof gameQuestions === "object") {
-        this.question = gameQuestions;
+        this.question = {...gameQuestions};
+        //Переопределим контекст для события ответа
+        for (let key in this.question) {
+          if (typeof this.question[key].actionAnswer === "function") {
+            this.question[key].actionAnswer = this.question[key].actionAnswer.bind(this);
+          }
+        }
       }
       /* eslint-enable */
 
@@ -142,6 +151,7 @@ export default {
     addInventarItem(key, countInc = true, count = null) {
       let prepareKey = key.split('_');
       let inventarKey = prepareKey[0];
+      let inventarIndex = prepareKey[1];
 
       //Если элемента нет в инвентаре, то добавляем
       if (!this.inventar[inventarKey]) {
@@ -154,10 +164,10 @@ export default {
         }
 
         this.inventar[inventarKey] = {...this.inventarSrc[inventarKey]};
-        this.inventarHistory[key] = Date.now()
       } else {
         //Если дата добавления + дата выдачи нового элемента больше текущей даты, то не добавляем
         if (
+            inventarIndex !== undefined &&
             this.inventarHistory[key] &&
             this.inventar[inventarKey].refreshTime &&
             this.inventarHistory[key] + this.inventar[inventarKey].refreshTime > Date.now()
@@ -165,6 +175,8 @@ export default {
           return false;
         }
       }
+
+      this.inventarHistory[key] = Date.now()
 
       //Инкремент кол-ва если разрешено
       if (countInc === true) {
