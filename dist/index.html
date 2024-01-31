@@ -1,0 +1,507 @@
+<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>treasure_chest</title><script defer="defer" src="/js/chunk-vendors.12f83dac.js"></script><script defer="defer" src="/js/app.6d26a056.js"></script><link href="/css/chunk-vendors.7eece550.css" rel="stylesheet"><link href="/css/app.d88c8288.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but treasure_chest doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><script>var gameQuestions = {
+        question1: {
+            complete: false,
+            text: 'сколько дней длится масленица?',
+            answer: 7,
+            variants: [
+                5, 8, 7, 14
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question2: {
+            complete: false,
+            text: 'асленица это старый праздник?',
+            answer: "Да",
+            variants: [
+                'Да', 'Нет'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question3: {
+            complete: false,
+            text: 'блин символизирует',
+            answer: 'солнце',
+            variants: [
+                'цветы', 'солнце', 'земля'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question4: {
+            complete: false,
+            text: 'На Масленицу наряжают и сжигают',
+            answer: 'чучело',
+            variants: [
+                'чучело', 'блины'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question5: {
+            complete: false,
+            text: 'на Масленицу все ______ блины',
+            answer: 'пекут',
+            variants: [
+                'дарят', 'пекут', 'едят'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question6: {
+            complete: false,
+            text: 'В какой день недели наряжали чучело масленицы?',
+            answer: 'понедельник',
+            variants: [
+                'понедельник', 'воскресенье', 'среда'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 5,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 7)
+                }
+            }
+        },
+        question7: {
+            complete: false,
+            text: 'В Pоссии блины едят с',
+            answer: [
+                'c икрой', 'с мёдом', 'с ягодами'
+            ],
+            variants: [
+                'c икрой', 'с мёдом', 'с сыром', 'с ягодами'
+            ],
+            userAnswer: [],
+            type: 'checkbox-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                let result = 0;
+                this.currentQuestion.userAnswer.map((answer) => {
+                    if (this.currentQuestion.answer.indexOf(answer) !== -1) {
+                        result++;
+                    }
+                })
+                if (result !== 0) {
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question8: {
+            complete: false,
+            text: 'На масленицу вы надеваете маски?',
+            answer: 'Да',
+            variants: [
+                'Да', 'нет'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question9: {
+            complete: false,
+            text: 'Кто празднует масленицу?',
+            answer: 'все',
+            variants: [
+                'женщины', 'люди', 'дети', 'все'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 2)
+                }
+            }
+        },
+        question10: {
+            complete: false,
+            text: 'сколько блюд надо кушать на масленицу?',
+            answer: 9,
+            variants: [
+                5, 2, 9, 15
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question11: {
+            complete: false,
+            text: 'Катания с горок раньше проходили так: наверху обледеневшего склона устанавливали стол с водкой, которой угощали «на дорожку», а внизу играл оркестр.',
+            answer: 'Да',
+            variants: [
+                'Да', 'Нет'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question12: {
+            complete: false,
+            text: 'Первый блин ели за упокой умерших — правда или нет?',
+            answer: 'Да',
+            variants: [
+                'Да', 'Нет'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question13: {
+            complete: false,
+            text: 'На третий день Масленичной недели незамужние девушки перед сном клали под подушку блин — чтобы приснился суженый. А утром ели столько блинов, сколько хотели бы иметь детей.',
+            answer: 'Нет',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 2)
+                }
+            }
+        },
+        question14: {
+            complete: false,
+            text: 'Холостых парней и девушек на Масленицу осуждали за то, что они не в браке. Для этого привязывали к ноге каждого холостяка кусок дерева, который повсюду приходилось волочить за собой.',
+            answer: 'Да',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question15: {
+            complete: false,
+            text: 'На тёщины вечёрки тёща печёт гору блинов и приглашает зятя в гости. Правда ли это?',
+            answer: 'Нет',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question16: {
+            complete: false,
+            text: 'Чтобы быстрее выйти замуж, при сжигании чучела Масленицы девушки кидали в огонь своё лучшее платье. Чтобы жених попался богатый и новое купил.',
+            answer: 'Нет',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question17: {
+            complete: false,
+            text: 'Если парню приглянулась девушка, он мог угостить её блином с крошечной ягодой клюквы. Если девушка съест и не заметит — значит, станет его женой.',
+            answer: 'Нет',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 2)
+                }
+            }
+        },
+        question18: {
+            complete: false,
+            text: 'Бедные люди пекли блины с четверга, а богатые кутили с понедельника.',
+            answer: 'Да',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question19: {
+            complete: false,
+            text: 'Императрице Екатерине II подавали высокохудожественные блины-рисунки, похожие на дорогое кружево. К блинам ставили чашку с вареньем, на дне которой был спрятан подарок-бриллиант.',
+            answer: 'Нет',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question20: {
+            complete: false,
+            text: 'тобы показать приглянувшемуся парню, какая она замечательная хозяйка, девушке следовало напечь целый таз блинов и вносить их комнату, водрузив таз с угощением себе на голову.',
+            answer: 'Нет',
+            variants: ['Да', 'Нет'],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 2)
+                }
+            }
+        },
+        question21: {
+            complete: false,
+            text: 'Кому, согласно пословице, не всё Масленица?',
+            answer: 'коту',
+            variants: [
+                'коту', 'козлу', 'собаке', 'козе'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 2,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 2)
+                }
+            }
+        },
+        question22: {
+            complete: false,
+            text: 'Как называется аналог Масленицы у католиков и лютеран?',
+            answer: 'Жирный вторник',
+            variants: [
+                'Жирный вторник', 'постный понедельник', 'сырный четверг', 'мясная суббота'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 3)
+                }
+            }
+        },
+        question23: {
+            complete: false,
+            text: 'Закончите поговорку: "Милости просим к нам об Масленице с своим добром, с...',
+            answer: 'честным животом',
+            variants: [],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 7)
+                }
+            }
+        },
+        question24: {
+            complete: false,
+            text: 'Как называется праздник Масленица по церковному уставу?',
+            answer: 'Сырная седмица',
+            variants: [],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 5,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 10)
+                }
+            }
+        },
+        question25: {
+            complete: false,
+            text: 'Что определяет начало время наступления Масленицы?',
+            answer: 'Великий пост',
+            variants: [],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 5,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 8)
+                }
+            }
+        },
+        question26: {
+            complete: false,
+            text: 'Как называется неделя, следующая за Масленицей?',
+            answer: 'Федорова неделя',
+            variants: [],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 5,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 10)
+                }
+            }
+        },
+        question27: {
+            complete: false,
+            text: 'Кто автор пьесы "Не всё коту масленица"?',
+            answer: 'А. Островский',
+            variants: [
+                'А. Островский', 'А. Пушкин', 'Н. Некрасов', 'И. Гоголь'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question28: {
+            complete: false,
+            text: 'Из какого материала обычно делают чучело на Масленицу?',
+            answer: 'солома',
+            variants: [
+                'бумага', 'пластик', 'резина', 'сено', 'солома'
+            ],
+            userAnswer: null,
+            type: 'radio-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+        question29: {
+            complete: false,
+            text: 'Какая масленичная забава требует хорошей физической подготовки, ловкости и выносливости?',
+            answer: 'залезание на столб',
+            variants: [
+                'хоровод', 'сжигание чучела', 'залезание на столб'
+            ],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 3,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                }
+            }
+        },
+    }</script><div id="app"></div></body></html>
