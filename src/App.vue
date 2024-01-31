@@ -29,11 +29,9 @@
 </template>
 
 <script>
-
 import qrCodeScanner from "@/components/qrCodeScanner.vue";
 import ControlsPanel from "@/components/controlsPanel.vue";
 import ToolBar from "@/components/toolBar.vue";
-
 
 export default {
   name: 'App',
@@ -46,14 +44,14 @@ export default {
     return {
       inventarSrc: {
         cristal: {
-          icon: './assets/icons/cristal.png',
+          icon: this.$attrs.publicPath + 'assets/icons/cristal.png',
           actionEventStart: null,
           action: null,
           refreshTime: 30000,
           count: 0,
         },
         aid: {
-          icon: './assets/icons/aid.png',
+          icon: this.$attrs.publicPath + 'assets/icons/aid.png',
           actionEventStart: 'iconClick',
           action: () => {
             this.inventar.health.count = 100;
@@ -63,7 +61,7 @@ export default {
           count: 0,
         },
         health: {
-          icon: './assets/icons/health.png',
+          icon: this.$attrs.publicPath + 'assets/icons/health.png',
           actionEventStart: 'mount',
           action: () => {
             setInterval(() => {
@@ -78,7 +76,7 @@ export default {
           count: 100
         },
         team: {
-          icon: './assets/icons/team.png',
+          icon: this.$attrs.publicPath + 'assets/icons/team.png',
           actionEventStart: null,
           action: null,
           refreshTime: 0,
