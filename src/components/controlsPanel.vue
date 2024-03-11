@@ -3,8 +3,7 @@
     <div class="container pt-2">
       <template v-if="open()===true">
         <div class="row">
-          <div class="col-12 mb-3 text-center">
-            {{ question.text }}
+          <div class="col-12 mb-3 text-center" v-html="question.text">
           </div>
           <div class="col-12">
             <component :is="renderComponent()"
