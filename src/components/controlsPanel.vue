@@ -11,9 +11,20 @@
                        :question="question"
                        @answer="setAnswer"
             ></component>
-            <div class="alert alert-success text-center" v-else>
-              Ответ на вопрос получен!
-              <button type="button" class="btn btn-success w-100" @click="$emit('close')">X</button>
+            <div class="alert text-center"
+                 v-bind:class="{'alert-success': question.error===true , 'alert-danger': question.error===false}"
+                 v-else>
+              Ответ принят! <br>
+              <template v-if="question.error===false">
+                Верный ответ!
+              </template>
+              <template v-else>
+                Ответ не верный!
+              </template>
+              <button type="button"
+                      class="btn  w-100"
+                      v-bind:class="{'btn-success': question.error===false , 'btn-danger': question.error===true}"
+                      @click="$emit('close')">X</button>
             </div>
           </div>
         </div>
@@ -51,6 +62,9 @@ export default {
   },
   methods: {
     open() {
+      if (this.$props.question.complete === true) {
+        return true;
+      }
       let cristalInInventar = 0;
       for (let key in this.$props.inventar) {
         let tmp = key.split('_');
@@ -58,7 +72,6 @@ export default {
           cristalInInventar += this.$props.inventar[key].count;
         }
       }
-
       return cristalInInventar >= this.$props.question.needCristalls;
     },
     setAnswer($event) {
