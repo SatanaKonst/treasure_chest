@@ -1,7 +1,8 @@
-<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/treasure_chest/favicon.ico"><title>treasure_chest</title><script defer="defer" src="/treasure_chest/js/chunk-vendors.12f83dac.js"></script><script defer="defer" src="/treasure_chest/js/app.12a30338.js"></script><link href="/treasure_chest/css/chunk-vendors.7eece550.css" rel="stylesheet"><link href="/treasure_chest/css/app.ab9ebbaf.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but treasure_chest doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><script>var gameQuestions = {
+<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/treasure_chest/favicon.ico"><title>treasure_chest</title><script defer="defer" src="/treasure_chest/js/chunk-vendors.630df61e.js"></script><script defer="defer" src="/treasure_chest/js/app.6ed2d8ab.js"></script><link href="/treasure_chest/css/chunk-vendors.7eece550.css" rel="stylesheet"><link href="/treasure_chest/css/app.66bc7a5d.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but treasure_chest doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><script>var gameQuestions = {
         question1: {
             complete: false,
-            text: 'сколько дней длится масленица?',
+            error: false,
+            text: 'Сколько дней длится масленица?',
             answer: 7,
             variants: [
                 5, 8, 7, 14
@@ -14,12 +15,16 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question2: {
             complete: false,
-            text: 'асленица это старый праздник?',
+            error: false,
+            text: 'Масленица это старый праздник?',
             answer: "Да",
             variants: [
                 'Да', 'Нет'
@@ -32,12 +37,16 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question3: {
             complete: false,
-            text: 'блин символизирует',
+            error: false,
+            text: 'Блин символизирует',
             answer: 'солнце',
             variants: [
                 'цветы', 'солнце', 'земля'
@@ -50,11 +59,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question4: {
             complete: false,
+            error: false,
             text: 'На Масленицу наряжают и сжигают',
             answer: 'чучело',
             variants: [
@@ -68,11 +81,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question5: {
             complete: false,
+            error: false,
             text: 'на Масленицу все ______ блины',
             answer: 'пекут',
             variants: [
@@ -86,11 +103,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question6: {
             complete: false,
+            error: false,
             text: 'В какой день недели наряжали чучело масленицы?',
             answer: 'понедельник',
             variants: [
@@ -104,11 +125,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 7)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question7: {
             complete: false,
+            error: false,
             text: 'В Pоссии блины едят с',
             answer: [
                 'c икрой', 'с мёдом', 'с ягодами'
@@ -128,12 +153,17 @@
                     }
                 })
                 if (result !== 0) {
+                    this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question8: {
             complete: false,
+            error: false,
             text: 'На масленицу вы надеваете маски?',
             answer: 'Да',
             variants: [
@@ -147,11 +177,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question9: {
             complete: false,
+            error: false,
             text: 'Кто празднует масленицу?',
             answer: 'все',
             variants: [
@@ -165,12 +199,16 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 2)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question10: {
             complete: false,
-            text: 'сколько блюд надо кушать на масленицу?',
+            error: false,
+            text: 'Сколько блюд надо кушать на масленицу?',
             answer: 9,
             variants: [
                 5, 2, 9, 15
@@ -183,11 +221,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question11: {
             complete: false,
+            error: false,
             text: 'Катания с горок раньше проходили так: наверху обледеневшего склона устанавливали стол с водкой, которой угощали «на дорожку», а внизу играл оркестр.',
             answer: 'Да',
             variants: [
@@ -201,11 +243,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question12: {
             complete: false,
+            error: false,
             text: 'Первый блин ели за упокой умерших — правда или нет?',
             answer: 'Да',
             variants: [
@@ -219,11 +265,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question13: {
             complete: false,
+            error: false,
             text: 'На третий день Масленичной недели незамужние девушки перед сном клали под подушку блин — чтобы приснился суженый. А утром ели столько блинов, сколько хотели бы иметь детей.',
             answer: 'Нет',
             variants: ['Да', 'Нет'],
@@ -235,11 +285,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 2)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question14: {
             complete: false,
+            error: false,
             text: 'Холостых парней и девушек на Масленицу осуждали за то, что они не в браке. Для этого привязывали к ноге каждого холостяка кусок дерева, который повсюду приходилось волочить за собой.',
             answer: 'Да',
             variants: ['Да', 'Нет'],
@@ -251,11 +305,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question15: {
             complete: false,
+            error: false,
             text: 'На тёщины вечёрки тёща печёт гору блинов и приглашает зятя в гости. Правда ли это?',
             answer: 'Нет',
             variants: ['Да', 'Нет'],
@@ -267,11 +325,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question16: {
             complete: false,
+            error: false,
             text: 'Чтобы быстрее выйти замуж, при сжигании чучела Масленицы девушки кидали в огонь своё лучшее платье. Чтобы жених попался богатый и новое купил.',
             answer: 'Нет',
             variants: ['Да', 'Нет'],
@@ -283,11 +345,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question17: {
             complete: false,
+            error: false,
             text: 'Если парню приглянулась девушка, он мог угостить её блином с крошечной ягодой клюквы. Если девушка съест и не заметит — значит, станет его женой.',
             answer: 'Нет',
             variants: ['Да', 'Нет'],
@@ -299,11 +365,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 2)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question18: {
             complete: false,
+            error: false,
             text: 'Бедные люди пекли блины с четверга, а богатые кутили с понедельника.',
             answer: 'Да',
             variants: ['Да', 'Нет'],
@@ -315,11 +385,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question19: {
             complete: false,
+            error: false,
             text: 'Императрице Екатерине II подавали высокохудожественные блины-рисунки, похожие на дорогое кружево. К блинам ставили чашку с вареньем, на дне которой был спрятан подарок-бриллиант.',
             answer: 'Нет',
             variants: ['Да', 'Нет'],
@@ -331,12 +405,16 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question20: {
             complete: false,
-            text: 'тобы показать приглянувшемуся парню, какая она замечательная хозяйка, девушке следовало напечь целый таз блинов и вносить их комнату, водрузив таз с угощением себе на голову.',
+            error: false,
+            text: 'Чтобы показать приглянувшемуся парню, какая она замечательная хозяйка, девушке следовало напечь целый таз блинов и вносить их комнату, водрузив таз с угощением себе на голову.',
             answer: 'Нет',
             variants: ['Да', 'Нет'],
             userAnswer: null,
@@ -347,11 +425,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 2)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question21: {
             complete: false,
+            error: false,
             text: 'Кому, согласно пословице, не всё Масленица?',
             answer: 'коту',
             variants: [
@@ -365,11 +447,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 2)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question22: {
             complete: false,
+            error: false,
             text: 'Как называется аналог Масленицы у католиков и лютеран?',
             answer: 'Жирный вторник',
             variants: [
@@ -383,11 +469,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 3)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question23: {
             complete: false,
+            error: false,
             text: 'Закончите поговорку: "Милости просим к нам об Масленице с своим добром, с...',
             answer: 'честным животом',
             variants: [],
@@ -399,11 +489,15 @@
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 7)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question24: {
             complete: false,
+            error: false,
             text: 'Как называется праздник Масленица по церковному уставу?',
             answer: 'Сырная седмица',
             variants: [],
@@ -415,11 +509,15 @@
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 10)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question25: {
             complete: false,
+            error: false,
             text: 'Что определяет начало время наступления Масленицы?',
             answer: 'Великий пост',
             variants: [],
@@ -431,11 +529,15 @@
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 8)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question26: {
             complete: false,
+            error: false,
             text: 'Как называется неделя, следующая за Масленицей?',
             answer: 'Федорова неделя',
             variants: [],
@@ -447,11 +549,15 @@
                 if (this.currentQuestion.userAnswer.toLowerCase() == this.currentQuestion.answer.toLowerCase()) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 10)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question27: {
             complete: false,
+            error: false,
             text: 'Кто автор пьесы "Не всё коту масленица"?',
             answer: 'А. Островский',
             variants: [
@@ -465,11 +571,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question28: {
             complete: false,
+            error: false,
             text: 'Из какого материала обычно делают чучело на Масленицу?',
             answer: 'солома',
             variants: [
@@ -483,11 +593,15 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
         question29: {
             complete: false,
+            error: false,
             text: 'Какая масленичная забава требует хорошей физической подготовки, ловкости и выносливости?',
             answer: 'залезание на столб',
             variants: [
@@ -501,7 +615,52 @@
                 if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
                     this.currentQuestion.complete = true;
                     this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
                 }
             }
         },
+        question30: {
+            complete: false,
+            error: false,
+            text: 'Организовать командный флешмоб с танцем.<br> Для примера можно взять данное видео. <br><a target="_blank" href="https://www.youtube.com/watch?v=uzuqPXwgOKc&ab_channel=%D0%AE%D0%BB%D0%B8%D1%8F%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D0%B0">Видео</a>',
+            answer: 'залезание на столб',
+            variants: [],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 40,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
+                }
+            }
+        },
+
+        question31: {
+            complete: false,
+            error: false,
+            text: 'Организовать командный флешмоб с танцем.<br> Для примера можно взять данное видео. <br><a target="_blank" href="https://www.youtube.com/watch?v=4oUx2jPUHS8&ab_channel=%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%B2%D0%B4%D0%B5%D0%BB%D0%B5">Видео</a>',
+            answer: 'залезание на столб',
+            variants: [],
+            userAnswer: null,
+            type: 'text-variants', //checkbox-variants, radio-variants, text-variants
+            needCristalls: 40,
+            actionAnswer: function () {
+                this.inventar.cristal.count -= this.currentQuestion.needCristalls;
+                if (this.currentQuestion.userAnswer == this.currentQuestion.answer) {
+                    this.currentQuestion.complete = true;
+                    this.addInventarItem('cristal', false, 5)
+                } else {
+                    this.currentQuestion.complete = true;
+                    this.currentQuestion.error = true;
+                }
+            }
+        },
+
     }</script><div id="app"></div></body></html>
