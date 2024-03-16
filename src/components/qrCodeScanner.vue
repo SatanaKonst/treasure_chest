@@ -32,7 +32,6 @@ export default {
 
 <style scoped>
 video {
-  border-radius: 130px;
-  height: 33vh;
+  height: 35vh;
 }
 </style>
